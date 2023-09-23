@@ -12,8 +12,19 @@ const addItem = () => {
         itemList.appendChild(li)
         li.appendChild(span)
         itemInput.value = ""
+        saveList()
     }
 }
+
+const saveList = () => {
+    localStorage.setItem("data", itemList.innerHTML)
+}
+
+const fetchList = () => {
+    itemList.innerHTML = localStorage.getItem("data")
+}
+
+fetchList()
 
 // event listeners
 itemInput.addEventListener("keypress", (e) => {
@@ -26,7 +37,9 @@ itemInput.addEventListener("keypress", (e) => {
 itemList.addEventListener("click", (e) => {
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("checked")
+        saveList()
     } else if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove()
+        saveList()
     }
 }, false)

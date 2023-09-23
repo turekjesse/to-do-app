@@ -10,9 +10,14 @@
         <div class="app">
             <h2>To do:</h2>
             <div class="flex-row">
-                <input type="text" placeholder="Add an item">
-                <button id="add-item">Add</button>
-            </div>            
+                <input id="item-input" type="text" placeholder="Add an item">
+                <button onclick="addItem()">Add</button>
+            </div>
+            <ul>
+                <li class="checked">Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>                
+            </ul>
         </div>
     </div>
     <script src="/js/script.js"></script>
